@@ -1,0 +1,46 @@
+     <div className="uk-container">
+                        <h1>Add Your Database Schema</h1>
+
+                        {
+                            this.state.sch.map((sc, index) => {
+                                return (
+
+                                    <div key={index} style={{ marginBottom: '20px' }}>
+                                        <div className="uk-child-width-expand@s uk-padding-remove" uk-grid="true">
+                                            <div>
+                                                <Input placeholder="Field Name" style={{ width: 200 }} value={sc} onChange={(e) => this.handleChange(e, index)} />
+                                            </div>
+                                            <div>
+                                                <Select
+                                                    showSearch
+                                                    style={{ width: 200 }}
+                                                    placeholder="Select a person"
+                                                    optionFilterProp="children"
+                                                    onChange={(e) => { this.handleChangeabc(e, index) }}
+
+                                                    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                                                >
+                                                    <Option value="String">String</Option>
+                                                    <Option value="Number">Number</Option>
+
+                                                </Select>
+                                            </div>
+                                            <div>
+                                                <Button icon="minus-circle" className="new-btn" style={{ background: '#e74c3c', width: 200 }} onClick={(e) => { this.handleRemove(index) }}>Delete</Button>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                )
+                            })
+                        }
+
+                        <Button type="primary" icon="plus-circle" className="new-btn" style={{ background: '#2ecc71' }} onClick={(e) => { this.handleSch(e) }}>Add Field</Button>
+                        {uploadschbtn}
+
+
+                    </div>
