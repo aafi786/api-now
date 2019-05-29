@@ -93,7 +93,7 @@ export default class AddForm extends Component {
                                                         </div>
                                                         <div>
                                                             <Select
-                                                                defaultValue="lucy"
+                                                                defaultValue="None"
                                                                 style={{ height: '62px', display: 'block', width: '100%' }}
                                                                 className="input100"
                                                                 placeholder="Select a person"

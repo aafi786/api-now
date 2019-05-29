@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+// const pretty = require('express-prettify');
 const app = express();
 
 //Mongoose Connection
@@ -22,6 +23,10 @@ db.on("error", function (err) {
     console.log(err);
 });
 
+
+//prettier middelware
+// app.use(pretty({ query: 'pretty' }));
+app.set('json spaces', 2)
 
 //Body Parser - For Getting Form Data
 
@@ -107,17 +112,7 @@ app.get('/test', (req, res) => {
 
     res.send(arr);
 })
-app.get('/data/:id', (req, res) => {
 
-    Data.findOne({ url: req.params.id }, (err, data) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            res.send(data, 200);
-        }
-    });
-})
 app.post('/find-data', (req, res) => {
 
     Data.findOne({ url: req.body.url }, (err, data) => {
@@ -169,7 +164,46 @@ app.post('/signup', (req, res) => {
     });
 });
 
+app.get('/data/:id', (req, res) => {
 
+    Data.findOne({ url: req.params.id }, (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log(data)
+            res.json(data.data)
+            console.log(req.params.id);
+        }
+    });
+})
+
+app.get('/form/data/:id', (req, res) => {
+
+    Data.findOne({ url: req.params.id }, (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+
+            res.status(200).send(data);
+
+        }
+    });
+})
+app.get('/dashboard', (req, res) => {
+
+    Data.find({}, (err, data) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+
+            res.status(200).send(data);
+
+        }
+    });
+})
 app.listen(5000, () => {
     console.log('Server Started On Port 5000');
 })

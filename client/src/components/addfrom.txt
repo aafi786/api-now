@@ -44,3 +44,7 @@
 
 
                     </div>
+
+
+DATA FROM KA INPUT FORM AANE KA TAG
+<Input type='text' key={index} placeholder={name.name} className="uk-margin" onChange={(e) => { this.handleData(e, index) }} />

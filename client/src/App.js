@@ -7,9 +7,11 @@ import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Home from "./components/Home";
 import About from './components/About';
+import DataForm from "./components/DataForm";
+import Dashboard from "./components/Dashboard";
 class App extends Component {
-
   render() {
+
 
 
     return (
@@ -24,6 +26,9 @@ class App extends Component {
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/add" component={Url} />
             <Route exact path="/db" component={AddForm} />
+            <Route exact path="/dbform" component={DataForm} />
+            <Route exact path="/api" loc="http://localhost:5000/" />
+            <Route exact path="/dashboard" component={Dashboard} />
 
           </div>
 

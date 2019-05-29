@@ -40,7 +40,7 @@ export default class Home extends Component {
 
 
                                 <div className="container-login100-form-btn m-t-17">
-                                    <Link to="/signup" className="login100-form-btn">
+                                    <Link to="/add" className="login100-form-btn">
                                         Get Started
 						</Link>
                                 </div>
