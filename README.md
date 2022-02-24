@@ -1,5 +1,6 @@
 # API NOW
 A Service to generate dummy api for your project
+Built on MERN Stack
 
 #Screenshots 
 
